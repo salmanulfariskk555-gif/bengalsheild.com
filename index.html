@@ -3,494 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Z Pharmakka Pvt Ltd | Excellence in Healthcare</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>Royal Weddings | Luxury Event Planner</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 120px;
+        :root {
+            --primary-gold: #d4af37;
+            --soft-pink: #fff5f6;
+            --dark-elegant: #1a1a1a;
+            --accent-blue: #e3f2fd;
+            --accent-purple: #f3e5f5;
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background-color: #fff; }
+        h1, h2, h3, .navbar-brand { font-family: 'Playfair Display', serif; }
 
-        .glass-nav-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            padding: 10px 16px;
-        }
+        /* Navbar */
+        .navbar { background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-link { color: var(--dark-elegant) !important; font-weight: 500; }
+        .nav-link:hover { color: var(--primary-gold) !important; }
 
-        .brand-z {
-            background: linear-gradient(to bottom, #059669 50%, #0284c7 50%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
-            margin-top: 10px;
-        }
-
-        .menu-pill {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #334155;
-            text-align: center;
-            padding: 6px 2px;
-            border-radius: 10px;
-        }
-
-        @media (min-width: 768px) {
-            .glass-nav-container { border-radius: 30px; padding: 12px 20px; }
-            .menu-grid { display: flex; align-items: center; gap: 15px; margin-top: 0; }
-            .menu-pill { font-size: 0.9rem; padding: 10px 12px; }
-            .menu-pill:hover { color: #059669; }
-        }
-
-        .btn-portfolio {
-            background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
-            color: white !important;
-            border-radius: 12px;
-            padding: 8px 12px;
-            font-weight: 700;
-            font-size: 0.75rem;
-            text-align: center;
-        }
-
-        .about-glass {
-            background: white;
-            border-radius: 35px;
-            border: 1px solid #f1f5f9;
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.05);
-        }
-
-        .product-card {
-            background: #ffffff;
-            border-radius: 30px;
-            padding: 25px;
-            border: 1px solid #f1f5f9;
-            transition: 0.4s ease;
-        }
-
-        .catalogue-box {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border-radius: 35px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .live-chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            width: 55px;
-            height: 55px;
-            border-radius: 18px;
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            box-shadow: 0 10px 20px rgba(37,211,102,0.3);
-            text-decoration: none;
+            text-align: center;
+            color: white;
         }
+        .hero-title { font-size: 4.5rem; margin-bottom: 20px; }
 
-        #product-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-        }
+        /* Buttons */
+        .btn-royal { background: var(--primary-gold); color: white; border-radius: 50px; padding: 12px 35px; transition: 0.3s; border: none; font-weight: 600; text-decoration: none; display: inline-block; }
+        .btn-royal:hover { background: #b8962e; transform: scale(1.05); color: white; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-        .animate-float { animation: float 4s ease-in-out infinite; }
+        /* Sections */
+        .section-padding { padding: 100px 0; }
+        .section-title { margin-bottom: 50px; position: relative; font-weight: 700; }
+        .section-title::after { content: ''; width: 80px; height: 3px; background: var(--primary-gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
 
-        @keyframes textShimmer {
-            to { background-position: 200% center; }
-        }
-        .animate-text-shimmer {
-            animation: textShimmer 3s linear infinite;
-        }
+        /* 8 Services Grid with Colors */
+        .service-card { border: none; border-radius: 20px; padding: 30px; transition: 0.4s; height: 100%; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .service-card:hover { transform: translateY(-10px); }
+        .s-1 { background: #fff9e6; border-bottom: 5px solid #ffcc00; }
+        .s-2 { background: #f0f4ff; border-bottom: 5px solid #4d7cfe; }
+        .s-3 { background: #fff0f5; border-bottom: 5px solid #ff69b4; }
+        .s-4 { background: #e8f5e9; border-bottom: 5px solid #4caf50; }
+        .s-5 { background: #f3e5f5; border-bottom: 5px solid #9c27b0; }
+        .s-6 { background: #fff3e0; border-bottom: 5px solid #ff9800; }
+        .s-7 { background: #e0f2f1; border-bottom: 5px solid #009688; }
+        .s-8 { background: #ede7f6; border-bottom: 5px solid #673ab7; }
+
+        /* Gallery */
+        .gallery-img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; transition: 0.4s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .gallery-img:hover { transform: scale(1.03); filter: brightness(80%); }
+
+        /* Testimonials with Colors */
+        .t-card-1 { background: #ffebee; border-left: 8px solid #ef5350; }
+        .t-card-2 { background: #e8eaf6; border-left: 8px solid #5c6bc0; }
+        .t-card-3 { background: #e8f5e9; border-left: 8px solid #66bb6a; }
+        .testimonial-card { padding: 30px; border-radius: 15px; margin-bottom: 20px; text-align: left; }
+
+        /* Booking Form */
+        .booking-container { background: white; padding: 40px; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-top: 5px solid var(--primary-gold); }
+
+        /* WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 40px; right: 40px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999; z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+
+        footer { background: var(--dark-elegant); color: #ccc; padding: 60px 0 20px; }
     </style>
 </head>
 <body>
 
-    <header class="fixed top-4 left-0 right-0 z-50 px-3 md:px-6">
-        <div class="max-w-6xl mx-auto glass-nav-container flex flex-col md:flex-row items-center justify-between">
-            <div class="flex items-center space-x-3 w-full md:w-auto justify-center md:justify-start">
-                <img src="https://i.postimg.cc/QMB1hSN8/Whats-App-Image-2026-02-05-at-12-46-01-AM.jpg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover">
-                <div>
-                    <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">
-                        <span class="brand-z">Z</span> <span class="text-slate-800">Pharmakka</span>
-                    </h1>
-                    <p class="text-[7px] md:text-[10px] font-bold text-gray-400 uppercase tracking-widest">Pvt Ltd | Excellence in Healthcare</p>
-                </div>
-            </div>
-
-            <nav class="menu-grid w-full md:w-auto">
-                <a href="#home" class="menu-pill">Home</a>
-                <a href="#about" class="menu-pill">About</a>
-                <a href="#products-section" class="menu-pill">Products</a>
-                <a href="#contact" class="menu-pill">Contact</a>
-                <div class="col-span-4 md:hidden mt-2">
-                    <a href="#catalogue-section" class="btn-portfolio block">Explore Portfolio</a>
-                </div>
-                <div class="hidden md:block">
-                     <a href="#catalogue-section" class="btn-portfolio block ml-4">Explore Portfolio</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-   <section id="home" class="relative min-h-screen flex items-center bg-white pt-40 md:pt-0 overflow-hidden">
-    <div class="max-w-7xl mx-auto w-full px-6">
-        <div class="flex flex-col lg:flex-row items-center gap-10">
-            <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left order-1">
-                <h2 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight text-slate-900">
-                    <span class="animate-text-shimmer bg-clip-text text-transparent bg-gradient-to-r from-[#059669] via-[#0284c7] to-[#059669] bg-[length:200%_auto]">
-                        Better Cure
-                    </span><br>
-                    <span class="text-slate-800">For Better Life.</span>
-                </h2>
-                <p class="text-gray-500 text-lg md:text-xl font-medium max-w-md mx-auto lg:mx-0">
-                    Bridging Ayurvedic tradition with modern medical precision.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                    <a href="#products-section" class="px-8 py-3 bg-[#059669] text-white rounded-full font-bold hover:shadow-lg transition-all text-sm md:text-base border-2 border-[#059669] hover:bg-transparent hover:text-[#059669]">
-                        Our Medicines
-                    </a>
-                    <a href="#contact" class="px-8 py-3 border-2 border-[#0284c7] text-[#0284c7] rounded-full font-bold hover:bg-blue-50 transition-all text-sm md:text-base">
-                        Contact Us
-                    </a>
-                </div>
-
-                <div class="lg:hidden mt-10 flex justify-center">
-                    <div class="relative w-40 h-40 animate-float">
-                        <div class="absolute inset-0 bg-gradient-to-tr from-[#05966920] to-[#0284c720] rounded-full scale-125 blur-xl"></div>
-                        <img src="https://i.postimg.cc/QMB1hSN8/Whats-App-Image-2026-02-05-at-12-46-01-AM.jpg"
-                             class="w-full h-full object-cover rounded-[30px] shadow-2xl border-2 border-white"
-                             alt="Z Pharmakka Logo">
-                    </div>
-                </div>
-            </div>
-
-            <div class="hidden lg:w-1/2 lg:flex justify-center lg:justify-end order-2">
-                <div class="relative w-80 h-80 animate-float">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-green-50 to-blue-50 rounded-full scale-125 -z-10 opacity-50"></div>
-                    <img src="https://i.postimg.cc/QMB1hSN8/Whats-App-Image-2026-02-05-at-12-46-01-AM.jpg"
-                         class="w-full h-full object-cover rounded-[40px] shadow-2xl border-4 border-white"
-                         alt="Z Pharmakka Logo">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-  <section id="about" class="max-w-7xl mx-auto px-6 py-28 bg-white">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-        <div class="relative order-2 lg:order-1">
-            <div class="absolute -inset-6 bg-gradient-to-br from-[#05966908] to-[#0284c708] rounded-[50px] blur-3xl"></div>
-
-            <div class="relative bg-white p-3 rounded-[45px] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.1)] border border-slate-100">
-                <div class="rounded-[35px] overflow-hidden aspect-square relative shadow-inner">
-                    <iframe src="https://player.cloudinary.com/embed/?cloud_name=dqdbeuftk&public_id=VID-20260129-WA0158_hsjs3c&autoplay=true&loop=true&muted=true"
-                            class="absolute inset-0 w-full h-full object-cover" style="border: none;" allowfullscreen></iframe>
-                </div>
-
-                <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white px-8 py-4 rounded-2xl shadow-xl border border-slate-50 flex items-center gap-4 whitespace-nowrap">
-                    <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">South India • Middle East</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="space-y-12 order-1 lg:order-2">
-            <div class="space-y-6">
-                <h3 class="text-5xl md:text-7xl font-black text-slate-900 leading-[0.95] tracking-tighter">
-                    Established <br> in <span class="animate-text-shimmer bg-clip-text text-transparent bg-gradient-to-r from-[#059669] via-[#0284c7] to-[#059669] bg-[length:200%_auto]">2026.</span>
-                </h3>
-                <p class="text-slate-600 text-lg md:text-xl font-medium leading-relaxed">
-                    <b>Z Pharmakka Pvt Ltd</b> is a pharmaceutical marketing company dedicated to delivering high-quality and reliable healthcare solutions.
-                </p>
-                <p class="text-slate-500 leading-relaxed max-w-xl">
-                    We strive to create a positive impact on the pharmaceutical industry through innovation, ethical practices, and a strong commitment to patient care across our core markets.
-                </p>
-            </div>
-
-            <div class="space-y-10 pt-4">
-                <div class="relative pl-8 border-l-2 border-green-500">
-                    <h4 class="text-xs font-black text-[#059669] uppercase tracking-[0.3em] mb-2">Our Mission</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        To provide safe, effective, and affordable pharmaceutical products while maintaining the highest standards of quality, integrity, and professionalism.
-                    </p>
-                </div>
-
-                <div class="relative pl-8 border-l-2 border-blue-600">
-                    <h4 class="text-xs font-black text-[#0284c7] uppercase tracking-[0.3em] mb-2">Our Vision</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">
-                        To become a trusted and leading pharmaceutical company, known for excellence and patient-centric healthcare solutions in international markets.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-<section id="products-section" class="max-w-7xl mx-auto px-4 py-16 bg-white">
-    <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-6xl font-black text-slate-900 leading-tight">
-            Our <span class="animate-text-shimmer bg-clip-text text-transparent bg-gradient-to-r from-[#059669] via-[#0284c7] to-[#059669] bg-[length:200%_auto]">Products</span>
-        </h2>
-        <div class="w-20 h-1 bg-gradient-to-r from-[#059669] to-[#0284c7] mx-auto mt-4 rounded-full"></div>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="CEFOZ-200" class="w-full h-full object-cover">
-            </div>
-            <div class="text-left">
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800 line-clamp-1">CEFOZ-200</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('CEFOZ-200', 'Cefpodoxime Proxetil Tablets I.P.', 'Susceptible mild to moderate infections including acute Otitis media, bacterial exacerbations of chronic Bronchitis, Sinusitis, Pharyngitis, Tonsillitis, Pneumonia, UTI, and Gonorrhea.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold hover:bg-[#059669] transition-colors">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1626442651034-406c88898993?w=400" alt="ZLACT" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">ZLACT</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Lotion</p>
-                <button onclick="showProduct('ZLACT', 'Calamine, Diphenhydramine, Aloe Vera & Glycerine', 'Soothing relief for dry/irritated skin, treatment for itching and minor skin irritations. Moisturizing formula.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1550572017-ed200f545dec?w=400" alt="DORVAZ A" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">DORVAZ A</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('DORVAZ A', 'Drotaverine hydrochloride and Aceclofenac', 'Relief for Intestinal, Biliary, and Renal Colic. Also effective for IBS and Post-operative pain.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=400" alt="ZRAB" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">ZRAB</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('ZRAB', 'Rabeprazole Sodium 20 Mg', 'Treatment for Gastric Ulcer, Peptic Ulcer Disease, GERD, and Zollinger-Ellison Syndrome.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400" alt="DUTAZIL" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">DUTAZIL</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Capsules</p>
-                <button onclick="showProduct('DUTAZIL', 'Silodosin 8 mg + Dutasteride 0.5 mg', 'Reduces Prostate Gland Enlargement (BPH), improves urine flow in men and manages acute urinary retention.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1550572017-4f180203e97a?w=400" alt="ENZYMZ" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">ENZYMZ</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('ENZYMZ', 'Bromelain, Rutoside & Trypsin', 'Effective for Back Pain, Fibrosis, Post Surgery healing, and Respiratory Tract Infections.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?w=400" alt="CILOSTRAZ" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">CILOSTRAZ</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('CILOSTRAZ', 'Cilostazol I.P. 100 mg', 'For Intermittent claudication, Peripheral arterial disease, and preventing thrombotic complications.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1587854680352-936b22b91030?w=400" alt="DISOZ" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">DISOZ</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Syrup</p>
-                <button onclick="showProduct('DISOZ', 'Disodium Hydrogen Citrate 1.53 GM', 'Systemic Alkaliser for treating Metabolic Acidosis and kidney stones by neutralizing excess acid.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=400" alt="HEMOZ" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">HEMOZ</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('HEMOZ', 'Ferrous Ascorbate, Folic Acid & Zinc', 'Manages blood loss and Anemia. Recommended for Pregnancy, Lactation and Menorrhagia.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-        <div class="product-card flex flex-col justify-between hover:shadow-xl border border-slate-100 p-3 md:p-5">
-            <div class="relative rounded-2xl overflow-hidden mb-4 bg-slate-50 aspect-square flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1547859292-8878831450a4?w=400" alt="VITOZ" class="w-full h-full object-cover">
-            </div>
-            <div>
-                <h4 class="font-extrabold text-sm md:text-lg text-slate-800">VITOZ</h4>
-                <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase mb-3">Tablets</p>
-                <button onclick="showProduct('VITOZ', 'Ginseng, Folic Acid, Multivitamins', 'Adaptogen to fight fatigue, increase stamina and support body against stressors.')"
-                        class="w-full py-2 bg-slate-900 text-white rounded-lg text-[10px] md:text-sm font-bold">View Details</button>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<script>
-    function showProduct(title, compo, usage) {
-        const modal = document.getElementById('product-modal');
-        const mTitle = document.getElementById('m-title');
-        const mDesc = document.getElementById('m-desc');
-
-        mTitle.innerText = title;
-        mDesc.innerHTML = `
-            <div class="text-left space-y-4">
-                <div>
-                    <span class="text-[10px] font-black text-[#059669] uppercase tracking-widest">Composition</span>
-                    <p class="text-slate-800 font-bold text-sm">${compo}</p>
-                </div>
-                <div>
-                    <span class="text-[10px] font-black text-[#0284c7] uppercase tracking-widest">Indications / Uses</span>
-                    <p class="text-slate-600 text-xs leading-relaxed">${usage}</p>
-                </div>
-                <a href="https://wa.me/919036633621?text=Hello Z Pharmakka, I am interested in ${title}. Please provide more details."
-                   target="_blank"
-                   class="flex items-center justify-center gap-2 w-full py-4 bg-[#25D366] text-white rounded-2xl font-black mt-6 shadow-lg shadow-green-100">
-                   WhatsApp Enquiry
-                </a>
-            </div>
-        `;
-        modal.style.display = 'flex';
-    }
-
-    function closeDetails() {
-        document.getElementById('product-modal').style.display = 'none';
-    }
-</script>
-
-    <section id="catalogue-section" class="max-w-7xl mx-auto px-4 py-16">
-        <div class="catalogue-box p-8 md:p-16 text-white text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
-            <div class="z-10">
-                <h3 class="text-3xl md:text-5xl font-black mb-4">Product Portfolio</h3>
-                <p class="text-slate-400 text-sm md:text-lg mb-8">Download our complete 2026 catalogue.</p>
-                <a href="#" class="inline-block bg-green-500 px-8 py-4 rounded-xl font-bold">DOWNLOAD PDF</a>
-            </div>
-            <div class="w-32 h-44 bg-white rounded-xl rotate-3 flex items-center justify-center text-slate-900 font-bold p-4 text-[10px]">
-                OFFICIAL CATALOGUE
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="max-w-7xl mx-auto px-6 py-16">
-        <div class="grid lg:grid-cols-2 gap-10">
-            <div>
-                <h3 class="text-3xl md:text-5xl font-black text-slate-900">Get In Touch</h3>
-                <div class="mt-8 space-y-4">
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100">
-                        <span>📞</span>
-                        <p class="font-bold text-sm">+91 90366 33621</p>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100">
-                        <span>📧</span>
-                        <p class="font-bold text-sm">zpharmakka@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-6 md:p-10 rounded-[40px] shadow-xl">
-                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message Sent!');">
-                    <input type="text" placeholder="Name" class="w-full p-4 bg-slate-50 rounded-xl outline-none border border-transparent focus:border-green-500" required>
-                    <textarea placeholder="Message" rows="3" class="w-full p-4 bg-slate-50 rounded-xl outline-none border border-transparent focus:border-green-500" required></textarea>
-                    <button type="submit" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold">SUBMIT</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center text-gray-400 text-[10px] tracking-widest uppercase">
-        &copy; 2026 Z Pharmakka Pvt Ltd
-    </footer>
-
-    <a href="https://wa.me/919036633621" target="_blank" class="live-chat-btn">
-        <span class="font-bold">WA</span>
+    <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
-    <div id="product-modal">
-        <div class="bg-white p-8 rounded-[30px] max-w-sm w-full relative">
-            <h3 id="m-title" class="text-2xl font-black mb-4"></h3>
-            <p id="m-desc" class="text-slate-600 mb-6"></p>
-            <button onclick="closeDetails()" class="w-full py-4 bg-slate-900 text-white rounded-xl font-bold">Close</button>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">ROYAL WEDDINGS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#booking">Book Now</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
 
+    <section class="hero-section" id="home">
+        <div class="container" data-aos="zoom-out">
+            <h1 class="hero-title">Crafting Your Perfect Day</h1>
+            <p class="lead mb-4">Exquisite Wedding Planning & Luxury Event Management</p>
+            <a href="#booking" class="btn btn-royal">Plan My Wedding</a>
+        </div>
+    </section>
+
+    <section class="section-padding container" id="about">
+        <div class="row align-items-center">
+            <div class="col-md-6" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-4 shadow-lg" alt="About">
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <h2 class="section-title text-start">Our Story</h2>
+                <p>Royal Weddings is a premier event management company dedicated to creating unforgettable experiences. We believe that every love story is unique, and your wedding should be too.</p>
+                <p>With a team of creative designers and expert coordinators, we take care of everything—leaving you free to enjoy every single moment of your big day.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light" id="services">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-up">8 Premium Services</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="100">
+                    <div class="service-card s-1">
+                        <i class="fas fa-magic fa-2x mb-3" style="color:#ffcc00"></i>
+                        <h4>Stage Decor</h4>
+                        <p>Royal and modern themed stage designs.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="200">
+                    <div class="service-card s-2">
+                        <i class="fas fa-utensils fa-2x mb-3" style="color:#4d7cfe"></i>
+                        <h4>Catering</h4>
+                        <p>Delicious multi-cuisine dining experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="300">
+                    <div class="service-card s-3">
+                        <i class="fas fa-camera fa-2x mb-3" style="color:#ff69b4"></i>
+                        <h4>Photography</h4>
+                        <p>Cinematic videos and candid moments.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="400">
+                    <div class="service-card s-4">
+                        <i class="fas fa-music fa-2x mb-3" style="color:#4caf50"></i>
+                        <h4>Live Music</h4>
+                        <p>DJs, Bands, and Traditional Melodies.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="500">
+                    <div class="service-card s-5">
+                        <i class="fas fa-bus fa-2x mb-3" style="color:#9c27b0"></i>
+                        <h4>Transport</h4>
+                        <p>Luxury cars for the bride and groom.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="600">
+                    <div class="service-card s-6">
+                        <i class="fas fa-spa fa-2x mb-3" style="color:#ff9800"></i>
+                        <h4>Makeup</h4>
+                        <p>Professional bridal makeup artists.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="700">
+                    <div class="service-card s-7">
+                        <i class="fas fa-envelope-open-text fa-2x mb-3" style="color:#009688"></i>
+                        <h4>Invitations</h4>
+                        <p>Creative digital and print cards.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6" data-aos="flip-left" data-aos-delay="800">
+                    <div class="service-card s-8">
+                        <i class="fas fa-gift fa-2x mb-3" style="color:#673ab7"></i>
+                        <h4>Guest Gifts</h4>
+                        <p>Customized return gifts for guests.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container" id="gallery">
+        <h2 class="section-title text-center" data-aos="fade-up">Gallery</h2>
+        <div class="row g-3 mt-4">
+            <div class="col-md-4 col-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500" class="gallery-img"></div>
+            <div class="col-md-4 col-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1465495910483-0d674104b503?auto=format&fit=crop&w=500" class="gallery-img"></div>
+            <div class="col-md-4 col-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500" class="gallery-img"></div>
+            <div class="col-md-4 col-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1522673607200-164883eecd4c?auto=format&fit=crop&w=500" class="gallery-img"></div>
+            <div class="col-md-4 col-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=500" class="gallery-img"></div>
+            <div class="col-md-4 col-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=500" class="gallery-img"></div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container text-center">
+            <h2 class="section-title" data-aos="fade-up">Customer Feedback</h2>
+            <div class="row g-4 mt-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="testimonial-card t-card-1">
+                        <p>"Everything was perfect! The stage decoration was better than we imagined."</p>
+                        <h6 class="fw-bold">- Rahul & Saniya</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card t-card-2">
+                        <p>"Professional team and delicious food. They handled our 1000+ guests easily."</p>
+                        <h6 class="fw-bold">- Dr. Manoj</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card t-card-3">
+                        <p>"The best wedding planner in town. Every guest appreciated the lighting and music."</p>
+                        <h6 class="fw-bold">- Meera Krishnan</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container" id="booking">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="booking-container" data-aos="zoom-in">
+                    <h2 class="text-center mb-4">Book Your Special Date</h2>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3"><input type="text" class="form-control p-3 shadow-sm" placeholder="Your Full Name" required></div>
+                            <div class="col-md-6 mb-3"><input type="tel" class="form-control p-3 shadow-sm" placeholder="WhatsApp Number" required></div>
+                            <div class="col-md-6 mb-3">
+                                <select class="form-select p-3 shadow-sm">
+                                    <option>Select Event Type</option>
+                                    <option>Grand Wedding</option>
+                                    <option>Engagement Ceremony</option>
+                                    <option>Corporate Gala</option>
+                                    <option>Birthday Party</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3"><input type="date" class="form-control p-3 shadow-sm"></div>
+                            <div class="col-12 mb-4"><textarea class="form-control p-3 shadow-sm" rows="4" placeholder="Any specific theme or requirement?"></textarea></div>
+                            <div class="col-12 text-center"><button class="btn btn-royal btn-lg w-100 shadow">Submit Booking Request</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-md-start text-center">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="footer-logo">ROYAL WEDDINGS</h5>
+                    <p>Creating magical memories since 2015. We turn your imagination into reality.</p>
+                    <div class="mt-3">
+                        <i class="fab fa-facebook fa-lg me-3"></i>
+                        <i class="fab fa-instagram fa-lg me-3"></i>
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Explore</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="#about" class="text-white-50 text-decoration-none">Our Story</a></li>
+                        <li><a href="#services" class="text-white-50 text-decoration-none">Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Get In Touch</h5>
+                    <p><i class="fas fa-envelope me-2"></i> hello@royalweddings.com</p>
+                    <p><i class="fas fa-phone me-2"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Kochi, Kerala, India</p>
+                </div>
+            </div>
+            <hr class="mt-4 border-secondary">
+            <p class="text-center mb-0">&copy; 2026 Royal Weddings. Elegant Events Guaranteed.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        function openDetails(title, desc) {
-            document.getElementById('m-title').innerText = title;
-            document.getElementById('m-desc').innerText = desc;
-            document.getElementById('product-modal').style.display = 'flex';
-        }
-        function closeDetails() {
-            document.getElementById('product-modal').style.display = 'none';
-        }
-        window.onclick = function(event) {
-            let modal = document.getElementById('product-modal');
-            if (event.target == modal) {
-                closeDetails();
-            }
-        }
-
-
+        AOS.init({ duration: 1000, once: true });
     </script>
 </body>
 </html>
